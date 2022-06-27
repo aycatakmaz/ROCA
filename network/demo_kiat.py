@@ -30,7 +30,7 @@ def main(args):
     for img_name in img_names:
         img_path = os.path.join(args.src_dir, img_name)
         img_orig = Image.open(img_path)
-        img = img_orig.resize((480,360))
+        img = img_orig.resize((480,360)) #add an assertion here before applying this transformation
         # resize the image?
         #pdb.set_trace()
         img = np.asarray(img)
@@ -39,7 +39,7 @@ def main(args):
             instances,
             cad_ids,
             # Table works poorly in the wild case due to size diversity
-            excluded_classes=(),  #{'table'} if wild else (), #maybe don't exclude?
+            excluded_classes={'table'} if wild else (), #maybe don't exclude?
             as_open3d=not to_file
         )
 
