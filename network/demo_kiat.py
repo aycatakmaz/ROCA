@@ -26,7 +26,7 @@ def main(args):
         os.makedirs(args.res_dir, exist_ok=True)
 
     #pdb.set_trace()
-    img_names = [el for el in os.listdir(args.src_dir) if (el.split('.')[-1]=='jpg' or el.split('.')[-1]=='png')]
+    img_names = [el for el in os.listdir(args.src_dir) if (el.split('.')[-1]=='jpg' or el.split('.')[-1]=='jpeg' or el.split('.')[-1]=='png')]
     for img_name in img_names:
         img_path = os.path.join(args.src_dir, img_name)
         img_orig = Image.open(img_path)
